@@ -40,7 +40,7 @@ For some editors, you can run the following commands for a one-click install:
         "@a24z/principal-md"
       ],
       "env": {
-        "VSCODE_MCP_BRIDGE_PORT": "3043",
+        "VSCODE_MCP_BRIDGE_PORT": "37123",
         "VSCODE_MCP_BRIDGE_HOST": "127.0.0.1"
       }
     }
@@ -103,14 +103,14 @@ This will add the MCP server configuration to your Cursor settings.
 ## Prerequisites
 
 1. **VS Code PrincipalMD Extension**: Install and run the PrincipalMD extension in VS Code
-2. **HTTP Bridge**: Ensure the extension's HTTP bridge is running (default port: 3043)
+2. **HTTP Bridge**: Ensure the extension's HTTP bridge is running (default port: 37123)
 
 ## Usage
 
 ### As a Standalone Server
 
 ```bash
-# Start the MCP server (default port 3043)
+# Start the MCP server (default port 37123)
 principal-md start
 
 # Start with custom port
@@ -120,7 +120,7 @@ principal-md start --port 8080
 principal-md start --host localhost --port 4000
 
 # Using environment variables
-VSCODE_MCP_BRIDGE_PORT=3044 principal-md start
+VSCODE_MCP_BRIDGE_PORT=37124 principal-md start
 ```
 
 ### As a Library
@@ -131,7 +131,7 @@ import { McpServer } from '@a24z/principal-md';
 const server = new McpServer({
   name: 'principal-md',
   version: '0.1.0',
-  bridgePort: 3043,
+  bridgePort: 37123,
   bridgeHost: '127.0.0.1'
 });
 
@@ -170,7 +170,7 @@ Get information about the extension and bridge status.
 ## Environment Variables
 
 - `VSCODE_MCP_BRIDGE_HOST`: Bridge host address (default: `127.0.0.1`)
-- `VSCODE_MCP_BRIDGE_PORT`: Bridge port (default: `3043`)
+- `VSCODE_MCP_BRIDGE_PORT`: Bridge port (default: `37123`)
 
 ## Development
 

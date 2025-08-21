@@ -78,7 +78,7 @@ function installCursor(options: CliOptions = {}): void {
     args.push('--port', options.port.toString());
     env.VSCODE_MCP_BRIDGE_PORT = options.port.toString();
   } else {
-    env.VSCODE_MCP_BRIDGE_PORT = '3043';
+    env.VSCODE_MCP_BRIDGE_PORT = '37123';
   }
   
   if (options.host) {
@@ -96,7 +96,7 @@ function installCursor(options: CliOptions = {}): void {
 
   writeFileEnsured(configPath, JSON.stringify(config, null, 2));
   console.log(`Installed MCP server config for Cursor at ${configPath}`);
-  console.log('\nNote: Make sure the VS Code PrincipalMD extension is running with the HTTP bridge enabled on port 3043');
+  console.log(`\nNote: Make sure the VS Code PrincipalMD extension is running with the HTTP bridge enabled on port ${options.port || 37123}`);
 }
 
 function installClaude(options: CliOptions = {}): void {
@@ -129,7 +129,7 @@ function installClaude(options: CliOptions = {}): void {
     args.push('--port', options.port.toString());
     env.VSCODE_MCP_BRIDGE_PORT = options.port.toString();
   } else {
-    env.VSCODE_MCP_BRIDGE_PORT = '3043';
+    env.VSCODE_MCP_BRIDGE_PORT = '37123';
   }
   
   if (options.host) {
@@ -147,7 +147,7 @@ function installClaude(options: CliOptions = {}): void {
 
   writeFileEnsured(target, JSON.stringify(config, null, 2));
   console.log(`Installed MCP server config for Claude at ${target}`);
-  console.log('\nNote: Make sure the VS Code PrincipalMD extension is running with the HTTP bridge enabled on port 3043');
+  console.log(`\nNote: Make sure the VS Code PrincipalMD extension is running with the HTTP bridge enabled on port ${options.port || 37123}`);
 }
 
 function printHelp(): void {
@@ -160,15 +160,15 @@ Commands:
   help                 Show this help
 
 Options:
-  --port, -p <port>    Bridge port (default: 3043)
+  --port, -p <port>    Bridge port (default: 37123)
   --host, -h <host>    Bridge host (default: 127.0.0.1)
 
 Environment Variables:
   VSCODE_MCP_BRIDGE_HOST   Bridge host (default: 127.0.0.1)
-  VSCODE_MCP_BRIDGE_PORT   Bridge port (default: 3043)
+  VSCODE_MCP_BRIDGE_PORT   Bridge port (default: 37123)
 
 Examples:
-  principal-md start                               # Use default port 3043
+  principal-md start                               # Use default port 37123
   principal-md start --port 8080                  # Use custom port
   principal-md install-claude --port 8080         # Install with custom port
   principal-md install-cursor --host localhost    # Install with custom host

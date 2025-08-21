@@ -5,7 +5,7 @@ export class BridgeClient {
   private readonly host: string;
   private readonly port: number;
 
-  constructor(host: string = '127.0.0.1', port: number = 3043) {
+  constructor(host: string = '127.0.0.1', port: number = 37123) {
     this.host = host;
     this.port = port;
   }

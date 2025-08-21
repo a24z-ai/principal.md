@@ -16,7 +16,7 @@ export function run(config?: Partial<McpServerConfig>): Promise<void> {
     name: 'principal-md',
     version: '0.1.0',
     bridgeHost: process.env.VSCODE_MCP_BRIDGE_HOST || '127.0.0.1',
-    bridgePort: parseInt(process.env.VSCODE_MCP_BRIDGE_PORT || '3043', 10),
+    bridgePort: parseInt(process.env.VSCODE_MCP_BRIDGE_PORT || '37123', 10),
     ...config,
   };
 

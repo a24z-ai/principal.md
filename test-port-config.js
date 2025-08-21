@@ -10,10 +10,10 @@ async function testPortConfig() {
   console.log('Testing port configuration...\n');
   
   // Test 1: Default port (should work with existing bridge)
-  console.log('1. Testing default port 3043...');
-  const defaultClient = new BridgeClient('127.0.0.1', 3043);
+  console.log('1. Testing default port 37123...');
+  const defaultClient = new BridgeClient('127.0.0.1', 37123);
   const defaultHealthy = await defaultClient.checkHealth();
-  console.log(`   Port 3043: ${defaultHealthy ? '✅ Connected' : '❌ Not connected'}\n`);
+  console.log(`   Port 37123: ${defaultHealthy ? '✅ Connected' : '❌ Not connected'}\n`);
   
   // Test 2: Custom port (should fail since no bridge is running there)
   console.log('2. Testing custom port 8080...');
@@ -23,7 +23,7 @@ async function testPortConfig() {
   
   // Test 3: Show configuration flexibility
   console.log('3. Configuration examples:');
-  console.log('   - Default: new BridgeClient("127.0.0.1", 3043)');
+  console.log('   - Default: new BridgeClient("127.0.0.1", 37123)');
   console.log('   - Custom:  new BridgeClient("localhost", 8080)');
   console.log('   - Remote:  new BridgeClient("192.168.1.100", 4000)');
   

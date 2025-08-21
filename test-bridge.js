@@ -7,7 +7,7 @@
 const { BridgeClient } = require('./dist/bridge-client.js');
 
 async function testBridge() {
-  const client = new BridgeClient('127.0.0.1', 3043);
+  const client = new BridgeClient('127.0.0.1', 37123);
   
   console.log('Testing bridge connection...\n');
   
