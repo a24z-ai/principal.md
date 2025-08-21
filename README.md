@@ -22,7 +22,61 @@ npx @a24z/principal-md
 
 ## Quick Setup
 
-### For Claude Desktop
+For some editors, you can run the following commands for a one-click install:
+
+**Cursor:**
+
+[Install MCP Server](https://cursor.com/settings/mcp)
+
+**Manual Integration**
+
+```json
+{
+  "mcpServers": {
+    "principal-md": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@a24z/principal-md"
+      ],
+      "env": {
+        "VSCODE_MCP_BRIDGE_PORT": "3043",
+        "VSCODE_MCP_BRIDGE_HOST": "127.0.0.1"
+      }
+    }
+  }
+}
+```
+
+**For Custom Ports:**
+
+```json
+{
+  "mcpServers": {
+    "principal-md": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@a24z/principal-md",
+        "--port",
+        "8080"
+      ],
+      "env": {
+        "VSCODE_MCP_BRIDGE_PORT": "8080",
+        "VSCODE_MCP_BRIDGE_HOST": "127.0.0.1"
+      }
+    }
+  }
+}
+```
+
+**Jules**
+
+Refer to [Jules MCP configuration](https://docs.jules.sh/mcp); define a server named `principal-md` with the same command, args, and env.
+
+### Automated Installation
+
+#### For Claude Desktop
 
 ```bash
 # Install with default port
@@ -34,7 +88,7 @@ principal-md install-claude --port 8080
 
 This will add the MCP server configuration to your Claude Desktop settings.
 
-### For Cursor
+#### For Cursor
 
 ```bash
 # Install with default port

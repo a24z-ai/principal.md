@@ -71,7 +71,7 @@ function installCursor(options: CliOptions = {}): void {
   const config = existing as { mcpServers?: Record<string, unknown> };
   if (!config.mcpServers) config.mcpServers = {};
 
-  const args = ['@a24z/principal-md'];
+  const args = ['-y', '@a24z/principal-md'];
   const env: Record<string, string> = {};
   
   if (options.port) {
@@ -122,7 +122,7 @@ function installClaude(options: CliOptions = {}): void {
   const config = existing as { mcpServers?: Record<string, unknown> };
   if (!config.mcpServers) config.mcpServers = {};
 
-  const args = ['@a24z/principal-md'];
+  const args = ['-y', '@a24z/principal-md'];
   const env: Record<string, string> = {};
   
   if (options.port) {
