@@ -11,13 +11,13 @@ A standalone MCP (Model Context Protocol) server that enables AI assistants to d
 ## Installation
 
 ```bash
-npm install -g principal-md
+npm install -g @a24z/principal-md
 ```
 
 Or use directly with npx:
 
 ```bash
-npx principal-md
+npx @a24z/principal-md
 ```
 
 ## Quick Setup
@@ -72,7 +72,7 @@ VSCODE_MCP_BRIDGE_PORT=3044 principal-md start
 ### As a Library
 
 ```typescript
-import { McpServer } from 'principal-md';
+import { McpServer } from '@a24z/principal-md';
 
 const server = new McpServer({
   name: 'principal-md',

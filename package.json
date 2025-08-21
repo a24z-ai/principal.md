@@ -1,5 +1,5 @@
 {
-  "name": "principal-md",
+  "name": "@a24z/principal-md",
   "version": "0.1.0",
   "private": false,
   "description": "Standalone Principal MD MCP server for markdown visualization",

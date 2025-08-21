@@ -71,7 +71,7 @@ function installCursor(options: CliOptions = {}): void {
   const config = existing as { mcpServers?: Record<string, unknown> };
   if (!config.mcpServers) config.mcpServers = {};
 
-  const args = ['principal-md'];
+  const args = ['@a24z/principal-md'];
   const env: Record<string, string> = {};
   
   if (options.port) {
@@ -122,7 +122,7 @@ function installClaude(options: CliOptions = {}): void {
   const config = existing as { mcpServers?: Record<string, unknown> };
   if (!config.mcpServers) config.mcpServers = {};
 
-  const args = ['principal-md'];
+  const args = ['@a24z/principal-md'];
   const env: Record<string, string> = {};
   
   if (options.port) {
@@ -172,6 +172,11 @@ Examples:
   principal-md start --port 8080                  # Use custom port
   principal-md install-claude --port 8080         # Install with custom port
   principal-md install-cursor --host localhost    # Install with custom host
+
+Installation:
+  npm install -g @a24z/principal-md
+  # OR
+  npx @a24z/principal-md
 
 Usage:
   1. Install the PrincipalMD VS Code extension (or other compatible UI)
