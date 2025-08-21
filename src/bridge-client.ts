@@ -10,19 +10,19 @@ export class BridgeClient {
     this.port = port;
   }
 
-  private async request(endpoint: string, data: unknown): Promise<BridgeResponse> {
+  private async request(endpoint: string, data: unknown, method: string = 'POST'): Promise<BridgeResponse> {
     return new Promise((resolve, reject) => {
-      const postData = JSON.stringify(data);
+      const postData = method === 'POST' ? JSON.stringify(data) : '';
       
       const options: http.RequestOptions = {
         hostname: this.host,
         port: this.port,
         path: endpoint,
-        method: 'POST',
-        headers: {
+        method: method,
+        headers: method === 'POST' ? {
           'Content-Type': 'application/json',
           'Content-Length': Buffer.byteLength(postData)
-        }
+        } : {}
       };
       
       const req = http.request(options, (res) => {
@@ -50,7 +50,9 @@ export class BridgeClient {
         reject(error);
       });
       
-      req.write(postData);
+      if (method === 'POST') {
+        req.write(postData);
+      }
       req.end();
     });
   }
@@ -65,8 +67,8 @@ export class BridgeClient {
 
   async checkHealth(): Promise<boolean> {
     try {
-      const response = await this.request('/health', {});
-      return response.success;
+      const response = await this.request('/health', {}, 'GET');
+      return response.status === 'ok';
     } catch {
       return false;
     }

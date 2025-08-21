@@ -17,7 +17,10 @@ export interface FileOpenRequest {
 }
 
 export interface BridgeResponse {
-  success: boolean;
+  success?: boolean;
+  status?: string;
   message?: string;
   error?: string;
+  service?: string;
+  version?: string;
 }
