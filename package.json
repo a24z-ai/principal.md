@@ -1,8 +1,8 @@
 {
   "name": "@a24z/principal-md",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": false,
-  "description": "Standalone Principal MD MCP server for markdown visualization",
+  "description": "Standalone MCP server for markdown visualization with Memory Palace VS Code extension",
   "main": "dist/lib.js",
   "types": "dist/lib.d.ts",
   "bin": {

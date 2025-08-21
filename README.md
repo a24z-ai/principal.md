@@ -1,6 +1,6 @@
 # Principal MD MCP Server
 
-A standalone MCP (Model Context Protocol) server that enables AI assistants to display and manipulate markdown content in VS Code through the PrincipalMD extension.
+A standalone MCP (Model Context Protocol) server that enables AI assistants to display and manipulate markdown content in VS Code through the Memory Palace extension.
 
 ## Features
 
@@ -102,7 +102,7 @@ This will add the MCP server configuration to your Cursor settings.
 
 ## Prerequisites
 
-1. **VS Code PrincipalMD Extension**: Install and run the PrincipalMD extension in VS Code
+1. **VS Code Memory Palace Extension**: Install and run the Memory Palace extension in VS Code
 2. **HTTP Bridge**: Ensure the extension's HTTP bridge is running (default port: 37123)
 
 ## Usage
@@ -256,7 +256,7 @@ principal-md install-claude --port 8080 --host localhost
 
 ### 3. Example Implementations
 
-- **VS Code Extension**: See [PrincipalMD VS Code extension](https://github.com/a24z-ai/principal.md)
+- **VS Code Extension**: See [Memory Palace VS Code extension](https://github.com/a24z-ai/principal.md)
 - **Web UI**: Create an Express.js server with the required endpoints
 - **Desktop App**: Use Electron, Tauri, or similar with embedded HTTP server
 - **Terminal UI**: Use a lightweight HTTP server to bridge to terminal-based markdown viewers

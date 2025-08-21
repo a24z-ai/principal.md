@@ -96,7 +96,7 @@ function installCursor(options: CliOptions = {}): void {
 
   writeFileEnsured(configPath, JSON.stringify(config, null, 2));
   console.log(`Installed MCP server config for Cursor at ${configPath}`);
-  console.log(`\nNote: Make sure the VS Code PrincipalMD extension is running with the HTTP bridge enabled on port ${options.port || 37123}`);
+  console.log(`\nNote: Make sure the VS Code Memory Palace extension is running with the HTTP bridge enabled on port ${options.port || 37123}`);
 }
 
 function installClaude(options: CliOptions = {}): void {
@@ -147,7 +147,7 @@ function installClaude(options: CliOptions = {}): void {
 
   writeFileEnsured(target, JSON.stringify(config, null, 2));
   console.log(`Installed MCP server config for Claude at ${target}`);
-  console.log(`\nNote: Make sure the VS Code PrincipalMD extension is running with the HTTP bridge enabled on port ${options.port || 37123}`);
+  console.log(`\nNote: Make sure the VS Code Memory Palace extension is running with the HTTP bridge enabled on port ${options.port || 37123}`);
 }
 
 function printHelp(): void {
@@ -179,7 +179,7 @@ Installation:
   npx @a24z/principal-md
 
 Usage:
-  1. Install the PrincipalMD VS Code extension (or other compatible UI)
+  1. Install the Memory Palace VS Code extension (or other compatible UI)
   2. Ensure the UI's HTTP bridge is running on the specified port
   3. Run 'principal-md install-claude' or 'principal-md install-cursor'
   4. Restart Claude Desktop or Cursor
