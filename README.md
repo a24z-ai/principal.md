@@ -25,7 +25,11 @@ npx principal-md
 ### For Claude Desktop
 
 ```bash
+# Install with default port
 principal-md install-claude
+
+# Install with custom port
+principal-md install-claude --port 8080
 ```
 
 This will add the MCP server configuration to your Claude Desktop settings.
@@ -33,7 +37,11 @@ This will add the MCP server configuration to your Claude Desktop settings.
 ### For Cursor
 
 ```bash
+# Install with default port
 principal-md install-cursor
+
+# Install with custom port and host
+principal-md install-cursor --port 8080 --host localhost
 ```
 
 This will add the MCP server configuration to your Cursor settings.
@@ -48,10 +56,16 @@ This will add the MCP server configuration to your Cursor settings.
 ### As a Standalone Server
 
 ```bash
-# Start the MCP server
+# Start the MCP server (default port 3043)
 principal-md start
 
-# With custom bridge configuration
+# Start with custom port
+principal-md start --port 8080
+
+# Start with custom host and port
+principal-md start --host localhost --port 4000
+
+# Using environment variables
 VSCODE_MCP_BRIDGE_PORT=3044 principal-md start
 ```
 
@@ -140,6 +154,58 @@ MIT
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Creating Custom UI Implementations
+
+The principal-md MCP server is designed to work with any UI that implements the HTTP bridge protocol. Here's how to create your own UI implementation:
+
+### 1. HTTP Bridge Requirements
+
+Your UI needs to implement an HTTP server with these endpoints:
+
+```typescript
+// GET /health - Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    service: 'Your UI Name',
+    version: '1.0.0'
+  });
+});
+
+// POST /show-markdown - Display markdown content
+app.post('/show-markdown', (req, res) => {
+  const { content, title, metadata } = req.body;
+  // Display the markdown content in your UI
+  res.json({ success: true, message: 'Content displayed' });
+});
+
+// POST /open-markdown-file - Open a markdown file
+app.post('/open-markdown-file', (req, res) => {
+  const { filePath, lineNumber } = req.body;
+  // Open the file in your UI
+  res.json({ success: true, message: 'File opened' });
+});
+```
+
+### 2. Using Custom Ports
+
+Start your UI's HTTP bridge on any available port, then configure the MCP server:
+
+```bash
+# Start MCP server with custom port
+principal-md start --port 8080
+
+# Install with custom configuration
+principal-md install-claude --port 8080 --host localhost
+```
+
+### 3. Example Implementations
+
+- **VS Code Extension**: See [PrincipalMD VS Code extension](https://github.com/a24z-ai/principal.md)
+- **Web UI**: Create an Express.js server with the required endpoints
+- **Desktop App**: Use Electron, Tauri, or similar with embedded HTTP server
+- **Terminal UI**: Use a lightweight HTTP server to bridge to terminal-based markdown viewers
 
 ## Support
 
